@@ -1,0 +1,35 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int main ()
+{
+	int N;
+	cin >> N;
+	int P;
+	cin >> P;
+	vector<vector<int>> b;
+	for (auto i = 0; i < N; ++i)
+	{
+		b.push_back(vector<int>());
+		for (auto j = 0; j < 3; ++j)
+		{
+			int t;
+			cin >> t;
+			b.at(i).push_back(t);
+		}
+	}
+	int m = 0;
+	for (auto i = 0; i < N; ++i)
+	{
+		int v = 1;
+		for (auto j = 0; j < 3; ++j)
+		{
+			v = v * b.at(i).at(j);
+		}
+		v = v * P;
+		m += v;
+	}
+	cout << m;
+	return 0;
+}
