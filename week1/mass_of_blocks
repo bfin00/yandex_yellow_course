@@ -19,15 +19,15 @@ int main ()
 			b.at(i).push_back(t);
 		}
 	}
-	int m = 0;
+	long long unsigned int m = 0;
 	for (auto i = 0; i < N; ++i)
 	{
-		int v = 1;
+		long int v = 1;
 		for (auto j = 0; j < 3; ++j)
 		{
 			v = v * b.at(i).at(j);
 		}
-		v = v * P;
+		v = static_cast<long long unsigned int>(v * P);
 		m += v;
 	}
 	cout << m;
