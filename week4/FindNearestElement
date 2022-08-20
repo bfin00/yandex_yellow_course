@@ -1,0 +1,38 @@
+#include <iostream>
+#include <set>
+#include <math.h>
+using namespace std;
+
+set<int>::iterator FindNearestElement(const set<int>& n, const int& b)
+{
+    auto itr = n.lower_bound(b);
+    int l;
+    int r = *itr;
+    if (itr != n.begin())
+    {
+        l = *(--itr);
+        ++itr;
+        if (abs(r - b) < abs(b - l))
+        {
+            return itr;
+        }
+        else return --itr;
+    }
+    else
+        return itr;
+}
+
+int main() {
+  set<int> numbers = {1, 4, 6};
+  cout <<
+      *FindNearestElement(numbers, 0) << " " <<
+      *FindNearestElement(numbers, 3) << " " <<
+      *FindNearestElement(numbers, 5) << " " <<
+      *FindNearestElement(numbers, 6) << " " <<
+      *FindNearestElement(numbers, 100) << endl;
+
+  set<int> empty_set;
+
+  cout << (FindNearestElement(empty_set, 8) == end(empty_set)) << endl;
+  return 0;
+}
