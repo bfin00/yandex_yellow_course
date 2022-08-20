@@ -1,0 +1,22 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+using namespace std;
+
+int main() {
+  int N = 0;
+  cin >> N;
+  vector<int> a;
+  for (auto i = 0; i < N; ++i)
+      a.push_back(i+1);
+  reverse(begin(a), end(a));
+  do
+  {
+      for (auto x: a)
+          cout << x;
+      cout << endl;
+  }
+  while(prev_permutation(a.begin(), a.end()));
+
+  return 0;
+}
